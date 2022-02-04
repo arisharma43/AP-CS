@@ -1,0 +1,31 @@
+public LightBoard(int numRows, int numCols){
+	lights = new boolean[numRows][numCols];
+	for(int r=0;r<lights.length;r++){
+		for(int c=0;c<lights[0].length;c++){
+			double prob=Math.random();
+			if(prob<0.4){
+				lights[r][c]=true;
+			}
+		}
+	}
+	
+}
+
+public boolean evaluateLight(int row,int col){
+	int countTwo=0;
+	int countThree=0;
+	for(int r=0;r<lights.length;r++){
+		if(lights[row][col]&&lights[r][col]){
+			countTwo++;
+		}else if(lights[row][col]==false&&lights[r][col]){
+			countThree++;
+		}else{
+			return lights[row][col];
+		}
+	}
+	if(countTwo%2==0){
+		return false;
+	}if(countTwo%3==0){
+		return true;
+	}
+}

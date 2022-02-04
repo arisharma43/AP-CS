@@ -1,0 +1,29 @@
+public static int arraySum(int[] arr){
+	int sum = 0;
+	for(int i=0; i<arr.length; i++){
+		sum+=arr[i];
+	}
+	return sum;
+}
+
+public static int[] rowSums(int[][] arr2D){
+	int[] sum = new int[arr2D.length];
+	int rowNum=0;
+	for(int[] row: arr2D){
+		sum[rowNum] = arraySum(row);
+		rowNum++;
+	}
+	return sum;
+}
+
+public static boolean isDiverse(int[][] arr2D){
+	int[] sum = rowSums(arr2D);
+	for(int i=0; i<sum.length; i++){
+		for(int j=i+1; j<sum.length; j++){
+			if(sum[i]==sum[j]){
+				return false;
+			}
+		}
+	}
+	return true;
+}

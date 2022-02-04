@@ -1,0 +1,24 @@
+public interface numberGroup{
+	boolean contains(int num);
+}
+
+public class Range implents numberGroup{
+	private int min;
+	private int max;
+	public Range(int minimum, int maximum){
+		min = minimum;
+		max = maximum;
+	}
+	public boolean contains(int num){
+		return num>=min&&num<=max;
+	}
+}
+
+public boolean contains(int num){
+	for(numberGroup group: Groups){
+		if(group.contains(num)){
+			return true;
+		}
+	}
+	return false;
+}

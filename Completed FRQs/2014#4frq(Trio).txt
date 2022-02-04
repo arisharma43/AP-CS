@@ -1,0 +1,25 @@
+public class Trio implements MenuItem{
+	private Sandwich sandwich;
+	private Salad salad;
+	private Drink drink;
+	public Trio(Sandwich s, Salad sa, Drink dr){
+		sandwich=s;
+		salad=sa;
+		drink=dr;
+	}
+	
+	public String getName(){
+		return sandwich.getName()+"/"+salad.getName()+"/"+drink.getName()+" Trio";
+	}
+	
+	public double getPrice(){
+		
+		if(sandwich.getPrice()>salad.getPrice()&&salad.getPrice()>drink.getPrice()){
+			return sandwich.getPrice()+salad.getPrice();
+		}else if(salad.getPrice()>sandwich.getPrice()&&drink.getPrice()>sandwich.getPrice()){
+			return salad.getPrice()+drink.getPrice();
+		}else{
+			return sandwich.getPrice()+drink.getPrice();
+		}
+	}
+}

@@ -1,0 +1,30 @@
+private void fillBlock(String str){
+	int strCount=0;
+	for(int r=0;r<numRows;r++){
+		for(int c=0;c<numCols;c++){
+			if(str.length()<r*c){
+				letterBlock[r][c]="A";
+			}else{
+				letterBlock[r][c]=str.substring(strCount, strCount+1);
+				strCount++;
+			}
+			
+		}
+	}
+}
+
+public String encryptMessage(String message){
+	String result="";
+	int l=(numRows*numCols);
+	for(int i=0;i<l;i++){
+		if(l>message.length()){
+			l=message.length();
+		}
+		fillBlock(message);
+		result+=encryptBlock();
+		result=result.substring(l);
+	}
+	return result;
+	
+	
+}

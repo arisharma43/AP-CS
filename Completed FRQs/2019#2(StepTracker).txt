@@ -1,0 +1,29 @@
+public class StepTracker{
+	private int minActive=0;
+	private int numDays=0;
+	private int totalSteps=0;
+	private int numActiveDays=0;	
+
+	public StepTracker(int minA){
+		minActive=minA;
+	}
+
+	public void addDailySteps(int newSteps){
+		totalSteps+=newSteps;
+		numDays++;
+		if(totalSteps>=minActive){
+			numActiveDays++;
+		}
+	}
+	
+	public int activeDays(){
+		return numActiveDays;
+	}
+	
+	public double averageSteps(){
+		if(numDays==0){
+			return 0.0;
+		}
+		return (totalSteps*1.0)/numDays;
+	}
+}

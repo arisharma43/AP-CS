@@ -1,0 +1,63 @@
+//1A
+public boolean conflictsWith(Appointment other){
+	return getTime().overlapsWith(other.getTime());
+}
+
+//1B
+public void clearConflicts(Appointment appt){
+	for(int i=apptList.size()-1;i>=0;i--){
+		if(apptList.get(i).conflictsWith(appt)){
+			apptList.remove(i);
+		}
+	}
+}
+
+//1C
+public boolean addAppt(Appointment appt, boolean emergency){
+	if(emergency){
+		clearConflicts(appt);
+		apptList.add(appt);
+		return true;
+	}
+	for(int i=0;i<apptList.size();i++){
+		if(!apptList.get(i).conflictsWith(appt)){
+			apptList.add(i, appt);
+			return true;
+		}
+		return false;
+	}
+		
+	
+	
+}
+
+//3A
+public int compareCustomer(Customer other){
+	int nameCompare=getName().compareTo(other.getName());
+	if(nameCompare==0){
+		return getID()-other.getID();
+	}
+	return nameCompare;
+}
+
+//3B
+public static void prefixMerge(Customer[] list1, Customer[] list2, Customer[] result){
+	int j=0,k=0;
+	Customer c1=list1[k];
+	Customer c2=list2[j];
+	for(int i=0;i<result.length;i++){
+		if(list1[i].compareCustomer(list2[i])<0){
+			result[i]=c1;
+			k++;
+		}else if(list1[i].compareCustomer(list2[i])>0){
+			result[i]=c2;
+			j++;
+		}else{
+			result[i]=c1;
+			k++;
+			j++;
+		}
+	}
+	
+	
+}

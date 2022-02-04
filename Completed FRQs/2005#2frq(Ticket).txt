@@ -1,0 +1,28 @@
+public class Advance extends Ticket{
+	private int days;
+	public Advance(int advance){
+		days=advance;
+	}
+	public double getPrice(){
+		if(days>=10){
+			return 30.0;
+		}if(days<=9){
+			return 40.0;
+		}
+	}
+}
+
+public class StudentAdvance extends Advance{
+	public StudentAdvance(int advance){
+		super(advance);
+	}
+	
+	public String toString(){
+		
+		return super.toString() + "\n(student ID required)";
+	}
+	
+	public double getPrice(){
+		return super.getPrice()/2.0;
+	}
+}

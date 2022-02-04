@@ -1,0 +1,16 @@
+public class MultPractice implements StudyPractice{
+	private int first;
+	private int secondInt;
+	public MultPractice(int f, int s){
+		first = f;
+		secondInt = s;
+	}
+	
+	public String getProblem(){
+		return first + " TIMES " + secondInt;
+	}
+	
+	public void nextProblem(){
+		secondInt++;
+	}
+}

@@ -1,0 +1,29 @@
+public class RandomStringChooser{
+	private String[] words;
+	private int remaining;
+	public RandomStringChooser(String[] wor){
+		words = new String[wor.length];
+		for(int i=0; i<words.length; i++){
+			words[i] = wor[i];
+		}
+		remaining = words.length;
+	}
+	public String getNext(){
+		if(remaining == 0){
+			return "NONE";
+		}
+		
+    		int index = (int) (Math.random() * remaining);
+    
+    		String selected = words[index];
+    		values[index] = words[remaining - 1];
+    
+    		remaining--;
+    
+    		return selected;
+	}
+}
+
+public RandomLetterChooser(String str){
+	super(getSingleLetters(str));
+}

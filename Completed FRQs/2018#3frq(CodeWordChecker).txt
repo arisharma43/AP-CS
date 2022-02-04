@@ -1,0 +1,20 @@
+public class CodeWordChecker implements StringChecker{
+	private int minLength;
+	private int maxLength;
+	private String notOccur;
+	
+	public CodeWordChecker(int minLen, int maxLen, String symbol){
+		minLength = minLen;
+		maxLength = maxLen;
+		notOccur = symbol;
+	}
+	public CodeWordChecker(String symbol){
+		minLength = 6;
+		maxLength = 20;
+		notOccur = symbol;
+	}
+
+	public boolean isValid(String str){
+		return str.length() >= minLength && str.length() <= maxLength && str.indexOf(notAllowed) == -1;
+	}
+}

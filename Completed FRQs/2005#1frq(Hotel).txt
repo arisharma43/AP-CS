@@ -1,0 +1,11 @@
+public Reservation cancelAndReassign(Reservation res){
+	int numRoom=res.getRoomNumber();
+	if(!waitList.isEmpty()){
+		rooms[numRoom] = new Reservation(waitList.get(0),numRoom);
+		waitList.remove(0);
+	}else{
+		rooms[numRoom]=null;
+	}
+	
+	return rooms[numRoom];
+}

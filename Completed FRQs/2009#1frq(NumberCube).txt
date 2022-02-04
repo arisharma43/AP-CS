@@ -1,0 +1,40 @@
+public class NumberCube
+{
+ /** @return an integer value between 1 and 6, inclusive
+ */
+ public int toss(){
+	/* implementation not shown */
+ }
+ 
+ public static int[] getCubeTosses(NumberCube cube, int numTosses){
+ 	int[] tossed = new int[numTosses];
+	for(int i=0; i<numTosses; i++){
+		tossed[i] = cube.toss();
+	}
+	return tossed;
+ }
+
+ public static int getLongestRun(int[] values){
+ 	int maxIndex = -1;
+	int maxRun = 1;
+	int runIndex = 0;
+	int runLength = 1;
+
+	for(int i=1; i<values.length; i++){
+		if(values[i]==values[runIndex]){
+			runLength++;
+			if(runLength>maxRun){
+				maxIndex = runIndex;
+				maxRun = runLength;
+			}
+		}else{
+			runIndex = i;
+			runLength = i;
+		}
+		
+	}
+	return maxIndex;
+ }
+  
+ // There may be instance variables, constructors, and methods that are not shown.
+} 

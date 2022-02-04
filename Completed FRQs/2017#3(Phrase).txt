@@ -1,0 +1,15 @@
+public void replaceNthOccurence(String str, int n, String repl){
+	int loc = findNthOccurence(str, n);
+	if(!(loc=-1)){
+		currentPhrase=currentPhrase.substring(0,loc) + repl + currentPhrase.substring(loc+str.length());
+	}
+	
+}
+
+public int findLastOccurence(String str){
+	int loc = 1;
+	while(findNthOccurrence(str,loc+1)!=-1){
+		loc++;
+	}
+	return findNthOccurrence(str,loc);
+}

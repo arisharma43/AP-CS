@@ -1,0 +1,33 @@
+public class FrogSimulation{
+	private int goalDistance;
+	private int maxHops;
+	
+	public FrogSimulation(int dist, int numHops){
+		goalDistance = dist;
+		maxHops = numHops;
+	}
+	
+	public boolean simulate(){
+		int hopped = 0;
+		for(int i=0; i<maxHops; i++){
+			hopped += hopDistance();
+			if(hopped>=goalDistance){
+				return true;
+			}else if(hopped<0){
+				return false;
+			}
+		}
+		return false;
+	}
+	
+	public double runSimulations(int num){
+		int count = 0;
+		for(int i=0; i<num; i++){
+			if(simulate()){
+				count++;
+			}
+		}
+		return (double)count/num;
+	}
+	
+}
